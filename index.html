@@ -224,14 +224,24 @@ var POP = {
                     }
                     console.log(POP.entities[i].powerup);
                   if(POP.entities[i].powerup=='bomb'){
-                      POP.score.hit -= 5;
+                      POP.score.hit = 0;
                    }else{
                         POP.score.hit += 1;
                    
                    }
                     if(POP.score.hit == 10){
                         console.log('Reached 10');
-                        window.alert("You Won \nHere is your next clue ...");
+                        window.alert("You Won ");
+                    }
+
+                    if(POP.score.hit == 100){
+                        console.log('Reached 10');
+                        window.alert("100 nice job");
+                    }
+
+                    if(POP.score.hit == 200){
+                        console.log('Reached 10');
+                        window.alert("Wow you really like this game \nHere is your next clue ...");
                     }
                    
                 }
@@ -286,7 +296,7 @@ var POP = {
 
         // display scores
         POP.Draw.text('Hit: ' + POP.score.hit, 20, 30, 14, '#fff');
-        POP.Draw.text('Escaped: ' + POP.score.escaped, 20, 50, 14, '#fff');
+       // POP.Draw.text('Escaped: ' + POP.score.escaped, 20, 50, 14, '#fff');
         POP.Draw.text('Accuracy: ' + POP.score.accuracy + '%', 20, 70, 14, '#fff');
 
     },
