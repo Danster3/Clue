@@ -30,6 +30,7 @@ window.requestAnimFrame = (function(){
           };
 })();
 
+var bubbleSpeed = 10;
 // namespace our game
 var POP = {
 
@@ -186,7 +187,8 @@ var POP = {
             // put a new instance of bubble into our entities array
             POP.entities.push(new POP.Bubble());
             // reset the counter with a random value
-            POP.nextBubble = ( Math.random() * 100 ) + 20  ;
+           // POP.nextBubble = ( Math.random() * 100 ) + 20  ;
+           POP.nextBubble = ( Math.random() * 100 ) + bubbleSpeed  ;
         }
 
         // spawn a new instance of Touch
@@ -232,14 +234,17 @@ var POP = {
                     if(POP.score.hit == 10){
                         console.log('Reached 10');
                         window.alert("You Won ");
+                        bubbleSpeed =bubbleSpeed/2;
                     }
 
                     if(POP.score.hit == 100){
+                        bubbleSpeed =bubbleSpeed/2;
                         console.log('Reached 10');
                         window.alert("100 nice job");
                     }
 
                     if(POP.score.hit == 200){
+                        bubbleSpeed =bubbleSpeed/2;
                         console.log('Reached 10');
                         window.alert("Wow you really like this game \nHere is your next clue ...");
                     }
@@ -424,7 +429,7 @@ POP.Bubble = function() {
 
     this.type = 'bubble';
     this.r = (Math.random() * 20) + 10;
-    this.speed = (Math.random() * 3) + 1;
+    this.speed = (Math.random() * 4) + 1;
  
     this.x = (Math.random() * (POP.WIDTH) - this.r);
     this.y = POP.HEIGHT + (Math.random() * 100) + 100;
